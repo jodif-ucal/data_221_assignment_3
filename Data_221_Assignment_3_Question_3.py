@@ -7,7 +7,7 @@ feature_matrix = kidney_disease_data.drop("classification", axis=1)
 label_column = kidney_disease_data["classification"]
 
 features_train, features_test, classification_train, classification_test = train_test_split(
-    feature_matrix, label_column, test_size=0.7
+    feature_matrix, label_column, test_size=0.7, random_state=42
 )
 
 #We should not train and test a model on the same data as the model has already been fitted on
