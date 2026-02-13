@@ -3,8 +3,13 @@ from sklearn.model_selection import train_test_split
 
 kidney_disease_data = pd.read_csv("csv_and_txt_files/kidney_disease.csv")
 
+#Dropping rows with null values as the alternative (filling the null values with 0) may skew the fitting process
+#Also changing every categorical feature to a numerical value that the model can understand
+cleaned_kidney_disease_data = kidney_disease_data.dropna().replace({
+    "yes": 1, "no": 0, "good": 1, "poor": 0, "normal": 1, "abnormal": 0, "present": 1, "notpresent": 0,
+})
 
-cleaned_kidney_disease_data = kidney_disease_data.dropna()
+#Splitting the features and labels
 feature_matrix = cleaned_kidney_disease_data.drop("classification", axis=1)
 label_column = cleaned_kidney_disease_data["classification"]
 
