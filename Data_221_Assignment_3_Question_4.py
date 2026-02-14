@@ -1,17 +1,17 @@
-import Data_221_Assignment_3_Question_3 as Aq3
+import Data_221_Assignment_3_Question_3 as ckd_data
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import precision_score, recall_score, accuracy_score, f1_score, confusion_matrix
 
 knn_model = KNeighborsClassifier(n_neighbors=5)
-trained_knn_model = knn_model.fit(Aq3.features_train, Aq3.classification_train)
+trained_knn_model = knn_model.fit(ckd_data.features_train, ckd_data.classification_train)
 
-predicted_classifications = trained_knn_model.predict(Aq3.features_test)
+predicted_classifications = trained_knn_model.predict(ckd_data.features_test)
 
-accuracy = accuracy_score(Aq3.classification_test, predicted_classifications)
-precision = precision_score(Aq3.classification_test, predicted_classifications,pos_label="ckd")
-recall = recall_score(Aq3.classification_test, predicted_classifications, pos_label="ckd")
-f1 = f1_score(Aq3.classification_test, predicted_classifications, pos_label="ckd")
-cm = confusion_matrix(Aq3.classification_test, predicted_classifications)
+accuracy = accuracy_score(ckd_data.classification_test, predicted_classifications)
+precision = precision_score(ckd_data.classification_test, predicted_classifications, pos_label="ckd")
+recall = recall_score(ckd_data.classification_test, predicted_classifications, pos_label="ckd")
+f1 = f1_score(ckd_data.classification_test, predicted_classifications, pos_label="ckd")
+cm = confusion_matrix(ckd_data.classification_test, predicted_classifications)
 
 
 print("Accuracy:", accuracy)
